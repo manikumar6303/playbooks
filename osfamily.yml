@@ -1,0 +1,10 @@
+---
+- name: Combining nic cards in the server
+  hosts: clients
+  remote_user: ansadmin
+  become: true
+  tasks:
+    - name: Display OS family
+      debug:
+        msg: "OS Version: {{ ansible_facts['distribution'] }}"
+      when: ansible_facts['distribution'] == "CentOS"
